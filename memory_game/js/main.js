@@ -34,8 +34,9 @@ const cards = [
 }
 ];
 const cardsInPlay = [];
-const src = document.setAtrribute("src", cards[cardId].cardImage);
+
 function checkForMatch() {
+	this.setAtrribute('src', cards[cardId].cardImage);
 	if (cardsInPlay[0] === cardsInPlay[1]) {
   console.log("You found a match!");
 } else {
@@ -53,7 +54,6 @@ console.log("User flipped king");*/
 
 function flipCard() {
 	let cardId = this.getAttribute('data-id');
-
 if (cardsInPlay.length === 2) {
 	console.log("There are 2 cards");
 } else if (cardsInPlay[0] === cardsInPlay[1]) {
@@ -70,15 +70,20 @@ if (cardsInPlay.length === 2) {
 checkForMatch();
 
 function createBoard() {
+	//loop through cards array
 for (let i = 0; i < cards.length; i++) {
+	//creating each card
 	let cardElement = document.createElement('img');
-	cardElement.setAtrribute('src', 'images/back.png');
+	//User will see back of card
+	cardElement.setAtrribute('src', "images/back.png");
+	//set the card's data-id to be the current index of card array
 	cardElement.setAtrribute('data-id', i);
 	document.getElementById('game-board').appendChild(cardElement);
 }
-} 
+}; 
 document.getElementByTagName('cardElement').addEventListener('click', flipCard);
 createBoard();
+
 
 
 
